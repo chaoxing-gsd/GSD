@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.LiteratureCompLabelMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.LiteratureCompLabel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="labelname" jdbcType="VARCHAR" property="labelname" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, labelname, userid, createtime, version
+  </sql>
+  
+  <!-- 根据标签id查询相关信息 -->
+  <select id="getVersionById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" /> 
+    from literature_comp_label
+    where id = #{id,jdbcType=INTEGER} 
+  </select>
+  
+  <!-- 根据用户id及标签名称查询标签id -->
+  <select id="getIdByUseridName" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.LiteratureCompLabel">
+    select 
+    id as id, 
+    userid as userid, 
+    labelname as labelname,
+    version as version 
+    from literature_comp_label
+    where userid = #{userid} and labelname = #{labelname} limit 1 
+  </select>
+  
+  <!-- 查询用户下是否已经存在同名标签 -->
+  <select id="getCount" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.LiteratureCompLabel">
+    select 
+    count(1) as id
+    from literature_comp_label
+    where userid = #{userid} and labelname = #{labelname}
+  </select>
+  
+  <!-- 根据用户id查询其下所有标签 -->
+  <select id="selectByUserId" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from literature_comp_label
+    where userid = #{userid}
+  </select>
+  
+  <!-- 通过id主键删除标签 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from literature_comp_label
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 插入一条标签 -->
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompLabel">
+    insert into literature_comp_label (labelname, userid, version)
+    values (#{labelname,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR})
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompLabel">
+    insert into literature_comp_label
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="labelname != null">
+        labelname,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="labelname != null">
+        #{labelname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <!-- 修改标签名称 -->
+  <update id="updateByPrimaryKeySelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompLabel">
+    update literature_comp_label
+    <set>
+      <if test="labelname != null">
+        labelname = #{labelname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompLabel">
+    update literature_comp_label
+    set labelname = #{labelname,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      version = #{version,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

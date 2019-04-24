@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.SearchContentMapper">
+
+
+
+	<insert id="insertSearchContent" parameterType="com.chaoxing.gsd.modules.entity.SearchContent">
+		insert into
+		searchcontent(userid,content,contentid)values(#{userid},#{content},#{contentid})
+	</insert>
+	
+	<!-- 根据用户id，搜索词，搜索时间删除搜索记录 -->
+	<delete id="deleteSearchHistory" parameterType="java.util.Map">
+		delete from searchcontent where userid=#{userid} 
+		and content = #{searchcontent}
+		and 
+		<if test="datetimetype == 0">
+        Created > date_sub(curdate(),interval 24 HOUR)
+      	</if>
+      	<if test="datetimetype == 1">
+        Created &lt; date_sub(curdate(),interval 24 hour )
+		and Created >= date_sub(curdate(),interval 7 day)
+      	</if>
+      	<if test="datetimetype == 2">
+        Created &lt; date_sub(curdate(),interval 7 day)
+		and Created >= date_sub(curdate(),interval 1 month )
+      	</if>
+      	<if test="datetimetype == 3">
+        Created &lt; date_sub(curdate(),interval 1 month ) 
+      	</if>
+	</delete>
+
+
+	<select id="getTodaySearchContent" parameterType="String"
+		resultType="com.chaoxing.gsd.modules.entity.SearchContent">
+		SELECT DISTINCT t.content, t.userid
+		from searchcontent t left join searchrecord f on t.content = f.content and t.userid
+		= f.userid
+		where t.Created > date_sub(curdate(),interval 24 HOUR ) and
+		t.userid=#{userid} and f.title2 != ''
+	</select>
+
+	<select id="getTodaySearchCount" parameterType="com.chaoxing.gsd.modules.entity.SearchContent"
+		resultType="Integer">
+		SELECT count(*)
+		from searchcontent
+		where Created > date_sub(curdate(),interval 24 HOUR) and
+		userid=#{userid}and content=#{content}
+	</select>
+
+
+	<select id="getLastWeekSearchContent" parameterType="String"
+		resultType="com.chaoxing.gsd.modules.entity.SearchContent">
+		SELECT DISTINCT t.content, t.userid
+		from searchcontent t left join searchrecord f on t.content = f.content and t.userid
+		= f.userid
+		where t.Created &lt; date_sub(curdate(),interval 24 hour )
+		and t.Created >= date_sub(curdate(),interval 7 day)
+		and t.userid=#{userid} and f.title2 != ''
+	</select>
+
+	<select id="getLastWeekSearchCount" parameterType="com.chaoxing.gsd.modules.entity.SearchContent"
+		resultType="Integer">
+		SELECT count(*)
+		from searchcontent
+		where Created &lt; date_sub(curdate(),interval 24 hour)
+		and Created >= date_sub(curdate(),interval 7 day)
+		and userid=#{userid}
+		and content=#{content}
+	</select>
+
+	<select id="getLastMounthSearchContent" parameterType="String"
+		resultType="com.chaoxing.gsd.modules.entity.SearchContent">
+		SELECT DISTINCT t.content, t.userid
+		from searchcontent t left join searchrecord f on t.content = f.content and t.userid
+		= f.userid
+		where t.Created &lt; date_sub(curdate(),interval 7 day)
+		and t.Created >= date_sub(curdate(),interval 1 month )
+		and t.userid=#{userid} and f.title2 != ''
+	</select>
+
+	<select id="getLastMounthSearchCount" parameterType="com.chaoxing.gsd.modules.entity.SearchContent"
+		resultType="Integer">
+		SELECT count(*)
+		FROM searchcontent
+		where Created &lt; date_sub(curdate(),interval 7 day)
+		and Created >= date_sub(curdate(),interval 1 month )
+		and userid=#{userid}
+		and content=#{content}
+	</select>
+
+	<select id="getMoreSearchContent" parameterType="String"
+		resultType="com.chaoxing.gsd.modules.entity.SearchContent">
+		SELECT DISTINCT t.content, t.userid
+		from searchcontent t left join searchrecord f on t.content = f.content and t.userid
+		= f.userid
+		where t.Created &lt; date_sub(curdate(),interval 1 month )
+		and t.userid=#{userid} and f.title2 != ''
+	</select>
+
+	<select id="getMoreSearchCount" parameterType="com.chaoxing.gsd.modules.entity.SearchContent"
+		resultType="int">
+		SELECT count(*)
+		FROM searchcontent
+		where Created &lt; date_sub(curdate(),interval 1 month )
+		and userid=#{userid}
+		and content=#{content}
+	</select>
+
+
+
+
+
+
+
+
+	<select id="getSearchContentByContent" parameterType="com.chaoxing.gsd.modules.entity.SearchContent"
+		resultType="com.chaoxing.gsd.modules.entity.SearchContent">
+		select * from searchcontent where content=#{content}and userid=#{userid}
+	</select>
+
+	<delete id="delAllContent" parameterType="String">
+		delete from searchcontent where userid=#{userid}
+	</delete>
+
+	<delete id="delContent" parameterType="com.chaoxing.gsd.modules.entity.SearchContent">
+		delete from searchcontent where content=#{content}and userid=#{userid}and
+		contentid=#{contentid}
+	</delete>
+
+	<!-- 查询某用户搜索次数 -->
+	<select id="getSearchCount" parameterType="String" resultType="Integer">
+		SELECT COUNT(1) FROM searchcontent t WHERE t.userid=#{userid}
+	</select>
+
+	<!-- 分页查询所有搜索记录，排序 -->
+	<select id="getCountOfSearch" parameterType="HashMap"
+		resultType="com.chaoxing.gsd.modules.entity.SearchContent">
+		select count(1) as num, t.content as content
+		from searchcontent t
+		group by t.content
+		order by num ${descInfo}
+		limit #{limitInfo}
+		offset #{offsetInfo};
+	</select>
+
+	<!-- 查询一个关键字的周增长率 -->
+	<select id="getWeekIncreaseOfSearch" parameterType="HashMap"
+		resultType="com.chaoxing.gsd.modules.entity.SearchContent">
+		select CONCAT((afterNum - beforeNum)/(beforeNum+0.0001)*100, '') as
+		weekIncrease from
+		(select
+		(select count(1) as num from searchcontent t where t.content = #{content} and
+		t.Created between #{bWeekStart} and #{bWeekEnd}) as beforeNum,
+
+		(select count(1) as num from searchcontent t where t.content = #{content} and
+		t.Created between #{aWeekStart} and #{aWeekEnd}) as afterNum) foo
+	</select>
+</mapper>

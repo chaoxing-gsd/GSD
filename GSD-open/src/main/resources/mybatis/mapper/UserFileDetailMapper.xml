@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.UserFileDetailMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.UserFileDetail">
+    <id column="fileid" jdbcType="INTEGER" property="fileid" />
+    <result column="filetype" jdbcType="CHAR" property="filetype" />
+    <result column="filesmallclass" jdbcType="CHAR" property="filesmallclass" />
+    <result column="filename" jdbcType="VARCHAR" property="filename" />
+    <result column="fileurl" jdbcType="VARCHAR" property="fileurl" />
+    <result column="filesize" jdbcType="BIGINT" property="filesize" />
+    <result column="objectid" jdbcType="VARCHAR" property="objectid" />
+    <result column="filefrom" jdbcType="CHAR" property="filefrom" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    fileid, filetype, filesmallclass, filename, fileurl, filesize, objectid, filefrom, updatetime, 
+    createtime
+  </sql>
+  
+  <!-- 检查文件名是否存在 -->
+  <select id="checkFileName"  parameterType="com.chaoxing.gsd.modules.entity.UserFileDetail"
+  resultType="java.lang.Integer">
+  select count(1) from user_file_detail t where t.filename = #{filename}
+  </select>
+  
+  <!-- 据文件名模糊分页查询用户所有文件 -->
+  <select id="getFilesByName" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select f.fileid as fileid, 
+  f.filename as filename,
+  f.filetype as filetype,
+  f.filesmallclass as filesmallclass, 
+  f.fileurl as fileurl,
+  f.filesize as filesize,
+  f.filefrom as filefrom,
+  f.createtime as createtime 
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid} 
+  and f.filename like '%${filename}%' 
+  order by f.createtime desc 
+  limit #{limit} offset #{index}
+  </select>
+  
+  <!-- 复合查询 -->
+  <select id="compoundQuery" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select f.fileid as fileid, 
+  f.filename as filename,
+  f.filetype as filetype,
+  f.filesmallclass as filesmallclass, 
+  f.fileurl as fileurl,
+  f.filesize as filesize,
+  f.filefrom as filefrom,
+  f.createtime as createtime 
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid} 
+  <if test="filename != null">
+   and f.filename like '%${filename}%' 
+  </if> 
+  <if test="type != null">
+   and f.filetype = #{type} 
+  </if>
+  <if test="orderis != null">
+  order by 
+  ${ordermessage} 
+  </if>
+  limit #{limit} offset #{index}
+  </select>
+  
+  <select id="compoundQueryTotal" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select count(1) as fileid  
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid} 
+  <if test="filename != null">
+  and f.filename like '%${filename}%' 
+  </if>
+  <if test="type != null">
+  and f.filetype = #{type}
+  </if>
+  </select>
+  
+  
+  
+  <!-- 据文件名模糊分页查询用户所有文件总数 -->
+  <select id="getFilesByNameTotal" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select count(1) as fileid  
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid} 
+  and f.filename like '%${filename}%' 
+  </select>
+  
+  <!-- 据文件类型分页查询用户所有文件 -->
+  <select id="getFilesByType" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select f.fileid as fileid, 
+  f.filename as filename, 
+  f.filetype as filetype,
+  f.filesmallclass as filesmallclass, 
+  f.fileurl as fileurl,
+  f.filesize as filesize,
+  f.filefrom as filefrom,
+  f.createtime as createtime  
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid} 
+  and f.filetype = #{type} 
+  order by f.createtime desc  
+  limit #{limit} offset #{index}
+  </select>
+  
+  <!-- 据文件类型分页查询用户所有文件总数 -->
+  <select id="getFilesByTypeTotal" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select count(1) as fileid  
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid} 
+  and f.filetype = #{type} 
+  </select>
+  
+  <!-- 据文件创建时间倒叙分页查询用户所有文件 -->
+  <select id="getFilesOfLatestUp" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select f.fileid as fileid, 
+  f.filename as filename, 
+  f.filetype as filetype,
+  f.filesmallclass as filesmallclass, 
+  f.fileurl as fileurl,
+  f.filesize as filesize,
+  f.filefrom as filefrom,
+  f.createtime as createtime  
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid} 
+  order by f.createtime desc 
+  limit #{limit} offset #{index}
+  </select>
+  
+  <!-- 据文件创建时间倒叙分页查询用户所有文件总数 -->
+  <select id="getFilesOfLatestUpTotal" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select count(1) as fileid   
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid}
+  </select>
+  
+  <!-- 据文件修改倒叙分页查询用户所有文件 -->
+  <select id="getFilesOfLatestMod" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+  select f.fileid as fileid, 
+  f.filename as filename, 
+  f.filetype as filetype,
+  f.filesmallclass as filesmallclass, 
+  f.fileurl as fileurl,
+  f.filesize as filesize,
+  f.filefrom as filefrom,
+  f.updatetime as updatetime, 
+  f.createtime as createtime   
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid}  
+  order by f.updatetime desc 
+  limit #{limit} offset #{index}
+  </select>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_file_detail
+    where fileid = #{fileid,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 根据文件id删除文件详情  -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_file_detail
+    where fileid = #{fileid,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+    insert into user_file_detail (fileid, filetype, filesmallclass, 
+      filename, fileurl, objectid, 
+      filefrom, updatetime, createtime
+      )
+    values (#{fileid,jdbcType=INTEGER}, #{filetype,jdbcType=CHAR}, #{filesmallclass,jdbcType=CHAR}, 
+      #{filename,jdbcType=VARCHAR}, #{fileurl,jdbcType=VARCHAR}, #{objectid,jdbcType=VARCHAR}, 
+      #{filefrom,jdbcType=CHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  
+  <!-- 根据文件大小分页查询文件 -->
+  <select id="selectByFileSize" parameterType="java.util.Map" 
+  resultType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+    select f.fileid as fileid, 
+  f.filename as filename, 
+  f.filetype as filetype,
+  f.filesmallclass as filesmallclass, 
+  f.fileurl as fileurl,
+  f.filesize as filesize,
+  f.filefrom as filefrom,
+  f.updatetime as updatetime, 
+  f.createtime as createtime   
+  from user_file_main t left join user_file_detail f 
+  on t.fileid = f.fileid 
+  where t.userid = #{userid}  
+  order by f.filesize ${sizes} 
+  limit #{limit} offset #{index}
+  </select>
+  
+  <!-- 按字段不为空插入数据 -->
+  <insert id="insertSelective" useGeneratedKeys="true" keyColumn="fileid" keyProperty="fileid" 
+  parameterType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+    insert into user_file_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fileid != null">
+        fileid,
+      </if>
+      <if test="filetype != null">
+        filetype,
+      </if>
+      <if test="filesmallclass != null">
+        filesmallclass,
+      </if>
+      <if test="filename != null">
+        filename,
+      </if>
+      <if test="fileurl != null">
+        fileurl,
+      </if>
+      <if test="filesize != null"> 
+        filesize, 
+      </if>
+      <if test="objectid != null">
+        objectid,
+      </if>
+      <if test="filefrom != null">
+        filefrom,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fileid != null">
+        #{fileid,jdbcType=INTEGER},
+      </if>
+      <if test="filetype != null">
+        #{filetype,jdbcType=CHAR},
+      </if>
+      <if test="filesmallclass != null">
+        #{filesmallclass,jdbcType=CHAR},
+      </if>
+      <if test="filename != null">
+        #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="fileurl != null">
+        #{fileurl,jdbcType=VARCHAR},
+      </if>
+      <if test="fileurl != null">
+        #{filesize,jdbcType=BIGINT},
+      </if>
+      <if test="objectid != null">
+        #{objectid,jdbcType=VARCHAR},
+      </if>
+      <if test="filefrom != null">
+        #{filefrom,jdbcType=CHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim> 
+    <selectKey resultType="int" keyProperty="fileid" order="AFTER">
+        SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <!-- 通过主键选择更新不为空的列 -->
+  <update id="updateByPrimaryKeySelective" parameterType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+    update user_file_detail
+    <set>
+      <if test="filetype != null">
+        filetype = #{filetype,jdbcType=CHAR},
+      </if>
+      <if test="filesmallclass != null">
+        filesmallclass = #{filesmallclass,jdbcType=CHAR},
+      </if>
+      <if test="filename != null">
+        filename = #{filename,jdbcType=VARCHAR},
+      </if>
+      <if test="fileurl != null">
+        fileurl = #{fileurl,jdbcType=VARCHAR},
+      </if>
+      <if test="objectid != null">
+        objectid = #{objectid,jdbcType=VARCHAR},
+      </if>
+      <if test="filefrom != null">
+        filefrom = #{filefrom,jdbcType=CHAR},
+      </if>
+      <if test="updatetime != null">
+        updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where fileid = #{fileid,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateByPrimaryKey" parameterType="com.chaoxing.gsd.modules.entity.UserFileDetail">
+    update user_file_detail
+    set filetype = #{filetype,jdbcType=CHAR},
+      filesmallclass = #{filesmallclass,jdbcType=CHAR},
+      filename = #{filename,jdbcType=VARCHAR},
+      fileurl = #{fileurl,jdbcType=VARCHAR},
+      objectid = #{objectid,jdbcType=VARCHAR},
+      filefrom = #{filefrom,jdbcType=CHAR},
+      updatetime = #{updatetime,jdbcType=TIMESTAMP},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where fileid = #{fileid,jdbcType=INTEGER}
+  </update>
+</mapper>

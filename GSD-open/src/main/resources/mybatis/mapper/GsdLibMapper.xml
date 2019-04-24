@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chaoxing.gsd.modules.mapper.GsdLibMapper" >
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.GsdLib" >
+    <id column="libid" property="libid" jdbcType="VARCHAR" />
+    <result column="categoryid" property="categoryid" jdbcType="VARCHAR" />
+    <result column="selfcategoryname" property="selfcategoryname" jdbcType="VARCHAR" />
+    <result column="namecha" property="namecha" jdbcType="VARCHAR" />
+    <result column="nameeng" property="nameeng" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="wiki" property="wiki" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    libid, categoryid, selfcategoryname, namecha, nameeng, type, wiki
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from gsdlib
+    where libid = #{libid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from gsdlib
+    where libid = #{libid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.GsdLib" >
+    insert into gsdlib (libid, categoryid, selfcategoryname, 
+      namecha, nameeng, type, 
+      wiki)
+    values (#{libid,jdbcType=VARCHAR}, #{categoryid,jdbcType=VARCHAR}, #{selfcategoryname,jdbcType=VARCHAR}, 
+      #{namecha,jdbcType=VARCHAR}, #{nameeng,jdbcType=VARCHAR}, #{type,jdbcType=INTEGER}, 
+      #{wiki,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.GsdLib" >
+    insert into gsdlib
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="libid != null" >
+        libid,
+      </if>
+      <if test="categoryid != null" >
+        categoryid,
+      </if>
+      <if test="selfcategoryname != null" >
+        selfcategoryname,
+      </if>
+      <if test="namecha != null" >
+        namecha,
+      </if>
+      <if test="nameeng != null" >
+        nameeng,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="wiki != null" >
+        wiki,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="libid != null" >
+        #{libid,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null" >
+        #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="selfcategoryname != null" >
+        #{selfcategoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="namecha != null" >
+        #{namecha,jdbcType=VARCHAR},
+      </if>
+      <if test="nameeng != null" >
+        #{nameeng,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="wiki != null" >
+        #{wiki,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chaoxing.gsd.modules.entity.GsdLib" >
+    update gsdlib
+    <set >
+      <if test="categoryid != null" >
+        categoryid = #{categoryid,jdbcType=VARCHAR},
+      </if>
+      <if test="selfcategoryname != null" >
+        selfcategoryname = #{selfcategoryname,jdbcType=VARCHAR},
+      </if>
+      <if test="namecha != null" >
+        namecha = #{namecha,jdbcType=VARCHAR},
+      </if>
+      <if test="nameeng != null" >
+        nameeng = #{nameeng,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="wiki != null" >
+        wiki = #{wiki,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where libid = #{libid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chaoxing.gsd.modules.entity.GsdLib" >
+    update gsdlib
+    set categoryid = #{categoryid,jdbcType=VARCHAR},
+      selfcategoryname = #{selfcategoryname,jdbcType=VARCHAR},
+      namecha = #{namecha,jdbcType=VARCHAR},
+      nameeng = #{nameeng,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER},
+      wiki = #{wiki,jdbcType=VARCHAR}
+    where libid = #{libid,jdbcType=VARCHAR}
+  </update>
+
+  <select id="getAllLib" parameterType="String"  resultType="com.chaoxing.gsd.modules.entity.GsdLib">
+    select
+    <include refid="Base_Column_List" />
+    from gsdlib
+    where selfcategoryname=#{selfcategoryname}
+  </select>
+
+  <select id="getGsdLibByLibId" parameterType="String" resultType="com.chaoxing.gsd.modules.entity.GsdLib">
+    select
+    <include refid="Base_Column_List" />
+    from gsdlib
+    where  libid = #{libId,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getSelfcategorynames" resultType="String">
+  select selfcategoryname from gsdlib
+  </select>
+
+  <select id="getSanfangIndexNames" resultType="String">
+    select libid from gsdlib
+    where  type = 2;
+  </select>
+
+</mapper>

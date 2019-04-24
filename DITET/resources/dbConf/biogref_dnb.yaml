@@ -1,0 +1,13 @@
+fieldList:
+- {table_field_name: person_id}
+- {table_field_name: person_name, index_field_name: person_name, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: gender,index_field_name: gender, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: born_year, index_field_name: born_year, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: died_year, index_field_name: died_year, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: dynasty, index_field_name: dynasty, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: jiguan, index_field_name: jiguan, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: shengfen, index_field_name: shengfen, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: shiqu, index_field_name: shiqu, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: lon_lat}
+- {table_field_name: typeId}
+- {table_field_name: libId}

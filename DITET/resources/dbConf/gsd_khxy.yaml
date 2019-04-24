@@ -1,0 +1,11 @@
+fieldList:
+- {table_field_name: special_organization1, index_field_name: special_organization1, index_field_type: text, index: false}
+- {table_field_name: special_organization2, index_field_name: special_organization2, index_field_type: text, index: false}
+- {table_field_name: basic_title1, index_field_name: basic_title1, index_field_type: text, index_analyzer: standard}
+- {table_field_name: basic_title, index_field_name: basic_title, index_field_type: text, index_analyzer: standard}
+- {table_field_name: basic_language, index_field_name: basic_language, index_field_type: text, index: false}
+- {table_field_name: basic_zimu, index_field_name: basic_zimu, index_field_type: text, index_analyzer: standard}
+- {table_field_name: basic_creator, index_field_name: basic_creator, index_field_type: text, index: false}
+- {table_field_name: basic_description, index_field_name: basic_description, index_field_type: text, index: false}
+- {table_field_name: basic_keyword, index_field_name: basic_keyword, index_field_type: text, index_analyzer: standard}
+- {table_field_name: basic_title_url, index_field_name: basic_title_url, index_field_type: text, index: false}

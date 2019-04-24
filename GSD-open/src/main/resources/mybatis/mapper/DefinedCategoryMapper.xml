@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.DefinedCategoryMapper" >
+
+
+    <select id="getCategoryByUserid" parameterType="String" resultType="com.chaoxing.gsd.modules.entity.DefinedCategory"  >
+        SELECT * FROM defined_category where userid=#{userid}
+    </select>
+
+    <insert id="insertCategory" parameterType="com.chaoxing.gsd.modules.entity.DefinedCategory">
+        insert into defined_category(userid,categoryid, categoryname) values(#{userid}, #{categoryid},#{categoryname})
+    </insert>
+
+
+    <delete id="delCategory" parameterType="com.chaoxing.gsd.modules.entity.DefinedCategory">
+      delete from defined_category where userid=#{userid} and categoryid=#{categoryid}
+    </delete>
+
+    <select id="getCategoryIdsByUserid" parameterType="String" resultType="String">
+        select categoryid from defined_category where userid=#{userid}
+    </select>
+    
+    <!-- 取最近创建的5个专业库查询标签 -->
+    <select id="getLastFiveCategory" parameterType="String" resultType="com.chaoxing.gsd.modules.entity.DefinedCategory">
+        select * from (select * from defined_category t where t.userid=#{userid} order by t.createtime desc limit 5) foo order by foo.categoryid desc; 
+    </select>
+    
+    <!-- 取最近使用的5个专业库查询标签 -->
+    <select id="getLastestFiveCategory" parameterType="String" resultType="com.chaoxing.gsd.modules.entity.DefinedCategory">
+        select * from (select * from defined_category t where t.userid=#{userid} order by t.updatetime desc limit 5) foo order by foo.categoryid desc;
+    </select>
+    
+    <!-- 更新专业库标签的更新时间 -->
+    <update id="updateOperatTime" parameterType="com.chaoxing.gsd.modules.entity.DefinedCategory">
+    update defined_category 
+    set updatetime = now() 
+    where userid = #{userid} 
+    <if test="categoryid != null">
+	and categoryid = #{categoryid}
+	</if>
+	<if test="categoryname != null">
+	and categoryname = #{categoryname}
+	</if>
+  	</update>
+
+    <select id="getCategoryByUseridAndName" parameterType="com.chaoxing.gsd.modules.entity.DefinedCategory"
+            resultType="com.chaoxing.gsd.modules.entity.DefinedCategory">
+        select * from defined_category where userid=#{userid} and categoryname=#{categoryname}
+    </select>
+
+
+    <update id="changeCategoryName" parameterType="com.chaoxing.gsd.modules.entity.DefinedCategory">
+        update defined_category set categoryname=#{categoryname} where userid=#{userid} and categoryid=#{categoryid}
+    </update>
+
+
+
+</mapper>

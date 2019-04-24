@@ -1,0 +1,11 @@
+fieldList:
+- {table_field_name: basic_cover_url, index_field_name: basic_cover_url, index_field_type: text}
+- {table_field_name: basic_title, index_field_name: basic_title, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_sourcename, index_field_name: basic_sourcename, index_field_type: text}
+- {table_field_name: basic_source_name, index_field_name: basic_source_name, index_field_type: text}
+- {table_field_name: basic_date_time, index_field_name: basic_date_time, index_field_type: integer, fielddata: true}
+- {table_field_name: basic_source_no, index_field_name: basic_source_no, index_field_type: text}
+- {table_field_name: basic_size, index_field_name: basic_size, index_field_type: text}
+- {table_field_name: basic_size1, index_field_name: basic_size1, index_field_type: text}
+- {table_field_name: basic_size2, index_field_name: basic_size2, index_field_type: text}
+- {table_field_name: basic_title_url, index_field_name: basic_title_url, index_field_type: text}

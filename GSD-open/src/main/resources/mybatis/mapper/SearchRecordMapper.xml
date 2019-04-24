@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chaoxing.gsd.modules.mapper.SearchRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.SearchRecord" >
+    <id column="Id" property="id" jdbcType="INTEGER" />
+    <result column="userid" property="userid" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="title1" property="title1" jdbcType="VARCHAR" />
+    <result column="title2" property="title2" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="Created" property="created" jdbcType="TIMESTAMP" />
+    <result column="ip" property="ip" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="point" property="point" jdbcType="VARCHAR" />
+    <result column="from" property="from" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Id, userid, content, title1, title2, url, Created, ip, address, point, from 
+  </sql>
+  
+  <!-- 根据用户id，搜索词，搜索时间删除搜索记录 -->
+   <delete id="deleteSearchHistory" parameterType="java.util.Map">
+		delete from searchrecord where userid=#{userid} 
+		and content = #{searchcontent}
+		and 
+		<if test="datetimetype == 0">
+        date(Created) > date_sub(curdate(),interval 24 HOUR)
+      	</if>
+      	<if test="datetimetype == 1">
+        date(Created) &lt; date_sub(curdate(),interval 24 hour )
+		and date(Created) >= date_sub(curdate(),interval 7 day)
+      	</if>
+      	<if test="datetimetype == 2">
+        date(Created) &lt; date_sub(curdate(),interval 7 day)
+		and date(Created) >= date_sub(curdate(),interval 1 month )
+      	</if>
+      	<if test="datetimetype == 3">
+        date(Created) &lt; date_sub(curdate(),interval 1 month ) 
+      	</if>
+	</delete>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from searchrecord
+    where Id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from searchrecord
+    where Id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord" >
+    insert into searchrecord (Id, userid, content, 
+      title1, title2, url, 
+      Created, ip, address, point, from
+      )
+    values (#{id,jdbcType=INTEGER}, #{userid,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{title1,jdbcType=VARCHAR}, #{title2,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{created,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR},
+      #{point,jdbcType=VARCHAR}, #{from,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord" >
+    insert into searchrecord
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        Id,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="title1 != null" >
+        title1,
+      </if>
+      <if test="title2 != null" >
+        title2,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="created != null" >
+        Created,
+      </if>
+      <if test="ip != null" >
+        ip,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="point != null" >
+        point,
+      </if>
+      <if test="from != null" >
+        from,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="title1 != null" >
+        #{title1,jdbcType=VARCHAR},
+      </if>
+      <if test="title2 != null" >
+        #{title2,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null" >
+        #{point,jdbcType=VARCHAR},
+      </if>
+      <if test="from != null" >
+        #{from,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord" >
+    update searchrecord
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="title1 != null" >
+        title1 = #{title1,jdbcType=VARCHAR},
+      </if>
+      <if test="title2 != null" >
+        title2 = #{title2,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        Created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ip != null" >
+        ip = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="point != null" >
+        point = #{point,jdbcType=VARCHAR},
+      </if>
+      <if test="from != null" >
+        from = #{from,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord" >
+    update searchrecord
+    set userid = #{userid,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      title1 = #{title1,jdbcType=VARCHAR},
+      title2 = #{title2,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      Created = #{created,jdbcType=TIMESTAMP},
+      ip = #{ip,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      point = #{point,jdbcType=VARCHAR},
+      from = #{from,jdbcType=VARCHAR}
+    where Id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <delete id="delSearchRecordByUserId" parameterType="String">
+        delete from searchrecord where userid=#{userid}
+    </delete>
+
+  <delete id="delSearchRecordByContent" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord">
+        delete from searchrecord where content=#{content}and userid=#{userid}
+    </delete>
+
+  <!-- 数据源搜索一段时间内排名前n项库 -->
+  <select id="getSearchCountRanking" parameterType="HashMap" resultType="com.chaoxing.gsd.modules.entity.SearchRecord">
+      select t.title1, count(1) as totalSize 
+      from searchrecord t where t.Created between #{startTime} and #{endTime} group by t.title1 order by totalSize desc limit #{limitSzie};
+  </select>
+    
+    <!-- 查询一段时间内的gsd访问量 -->
+    <select id="getGsdVisitAmount" parameterType="HashMap" resultType="com.chaoxing.gsd.modules.entity.SearchRecord">
+      select t.Created as created  
+      from searchrecord t where t.Created between #{startTime} and #{endTime};
+    </select>
+
+  <select id="getAddress"  resultType="String">
+        select address from searchrecord ;
+  </select>
+
+  <select id="getPointByAddress" parameterType="String" resultType="String">
+        select point from searchrecord where address=#{address} ;
+  </select>
+
+  <select id="getCountByAddress" parameterType="String" resultType="Integer">
+        select count(*) from searchrecord where address=#{address};
+  </select>
+
+  <select id="get24HoursSearchRecord" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord"
+          resultType="java.util.Map">
+		SELECT distinct content, title1, title2, url
+		from searchrecord
+		where  Created > date_sub(curdate(),interval 24 HOUR )
+		and userid=#{userid} and content=#{content} and url is not null and url != '' 
+
+  </select>
+
+  <select id="getLastWeekSearchRecord" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord"
+          resultType="java.util.Map">
+		SELECT distinct content, title1, title2, url
+		from searchrecord
+		where Created &lt; date_sub(curdate(),interval 24 hour )
+		and Created >= date_sub(curdate(),interval 7 day)
+		and userid=#{userid} and content=#{content} and url is not null and url != ''
+  </select>
+
+  <select id="getLastMonthSearchRecord" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord"
+          resultType="java.util.Map">
+		SELECT distinct content, title1, title2, url
+		from searchrecord
+		where Created &lt; date_sub(curdate(),interval 7 day)
+		and Created >= date_sub(curdate(),interval 1 month )
+		and userid=#{userid} and content=#{content} and url is not null and url != ''
+  </select>
+
+  <select id="getMoreSearchRecord" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord"
+          resultType="java.util.Map">
+		SELECT distinct content, title1, title2, url
+		from searchrecord
+		where Created &lt; date_sub(curdate(),interval 1 month )
+		and userid=#{userid} and content=#{content} and url is not null and url != ''
+  </select>
+
+  <select id="get24HoursSearchRecordNum" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord"
+          resultType="com.chaoxing.gsd.modules.entity.SearchRecord">
+		SELECT t.content as content, count(1) as id  
+		from searchrecord t 
+		where t.Created > date_sub(curdate(),interval 24 HOUR ) 
+		and t.userid=#{userid} and t.url is not null and t.url != '' group by t.content
+  </select>
+
+  <select id="getLastWeekSearchRecordNum" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord"
+          resultType="com.chaoxing.gsd.modules.entity.SearchRecord">
+		SELECT t.content as content, count(1) as id  
+		from searchrecord t 
+		where t.Created &lt; date_sub(curdate(),interval 24 hour )
+		and t.Created >= date_sub(curdate(),interval 7 day) 
+		and t.userid=#{userid} and t.url is not null and t.url != '' group by t.content
+  </select>
+
+  <select id="getLastMonthSearchRecordNum" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord"
+          resultType="com.chaoxing.gsd.modules.entity.SearchRecord">
+		SELECT t.content as content, count(1) as id  
+		from searchrecord t 
+		where t.Created &lt; date_sub(curdate(),interval 7 day)
+		and t.Created >= date_sub(curdate(),interval 1 month )  
+		and t.userid=#{userid} and t.url is not null and t.url != '' group by t.content
+  </select>
+
+  <select id="getMoreSearchRecordNum" parameterType="com.chaoxing.gsd.modules.entity.SearchRecord"
+          resultType="com.chaoxing.gsd.modules.entity.SearchRecord">
+		SELECT t.content as content, count(1) as id  
+		from searchrecord t 
+		where t.Created &lt; date_sub(curdate(),interval 1 month )   
+		and t.userid=#{userid} and t.url is not null and t.url != '' group by t.content
+  </select>
+
+</mapper>

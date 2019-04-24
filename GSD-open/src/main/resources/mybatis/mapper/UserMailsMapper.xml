@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.UserMailsMapper" >
+
+	<!-- 新增绑定关系 -->
+    <insert id="insertUserMail" parameterType="com.chaoxing.gsd.modules.entity.UserMails">
+        insert into user_mails(userid, mail) values(#{userid}, #{mail})
+    </insert>
+
+	<!-- 通过用户id得到绑定的邮箱列表 -->
+    <select id="getUserMails" parameterType="String" resultType="com.chaoxing.gsd.modules.entity.UserMails">
+        select * from user_mails where userid=#{userid}
+    </select>
+
+	<!-- 通过邮箱反查用户 -->
+    <select id="getUserByMail" parameterType="String" resultType="com.chaoxing.gsd.modules.entity.UserMails">
+         select * from user_mails where mail=#{mail}
+    </select>
+    
+    <!-- 用户删除绑定邮箱 -->
+    <delete id="deleteMail" parameterType="com.chaoxing.gsd.modules.entity.UserMails">
+         delete from user_mails where userid=#{userid} and mail=#{mail}
+    </delete>
+    
+
+</mapper>

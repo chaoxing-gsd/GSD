@@ -1,0 +1,13 @@
+fieldList:
+- {table_field_name: basic_title, index_field_name: basic_title, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_creator, index_field_name: basic_creator, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_contact,index_field_name: basic_contact, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_date_time, index_field_name: basic_date_time, index_field_type: text}
+- {table_field_name: basic_keyword, index_field_name: basic_keyword, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_description, index_field_name: basic_description, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_language, index_field_name: basic_language, index_field_type: text}
+- {table_field_name: basic_identifier_1, index_field_name: basic_identifier_1, index_field_type: text}
+- {table_field_name: proc_doi_id, index_field_name: proc_doi_id, index_field_type: text}
+- {table_field_name: basic_type, index_field_name: basic_type, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_publisher, index_field_name: basic_publisher, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_title_url, index_field_name: basic_title_url, index_field_type: text}

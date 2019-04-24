@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.LiteratureDownDetailMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.LiteratureDownDetail">
+    <result column="labelid" jdbcType="INTEGER" property="labelid" />
+    <result column="literatureid" jdbcType="VARCHAR" property="literatureid" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="indexname" jdbcType="VARCHAR" property="indexname" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    labelid, literatureid, type, indexname, createtime
+  </sql>
+  
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDownDetail">
+    insert into literature_down_detail (labelid, literatureid, type, 
+      indexname, createtime)
+    values (#{labelid,jdbcType=INTEGER}, #{literatureid,jdbcType=VARCHAR}, #{type,jdbcType=CHAR}, 
+      #{indexname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <!-- 文献下载标签详情删除接口，根据标签id删除所有文献记录 -->
+  <delete id="deleteAllByLabelId" parameterType="java.lang.Integer">
+    delete from literature_down_detail
+    where labelid = #{labelid,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 按需导入 -->
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDownDetail">
+    insert into literature_down_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="labelid != null">
+        labelid,
+      </if>
+      <if test="literatureid != null">
+        literatureid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="indexname != null">
+        indexname,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="labelid != null">
+        #{labelid,jdbcType=INTEGER},
+      </if>
+      <if test="literatureid != null">
+        #{literatureid,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=CHAR},
+      </if>
+      <if test="indexname != null">
+        #{indexname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  
+  <!-- 文献下载删除接口，根据标签id和文献id删除记录 -->
+  <delete id="deleteByLabelId" parameterType="java.util.Map">
+    delete from literature_down_detail
+    where labelid = #{labelid} and literatureid = #{literatureid}
+  </delete>
+  
+  <!-- 根据标签id查询标签下所有比较文献id -->
+  <select id="selectByLabelId" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from literature_down_detail 
+    where labelid = #{labelid}
+  </select>
+</mapper>

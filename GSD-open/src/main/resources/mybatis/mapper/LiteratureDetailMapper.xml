@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.LiteratureDetailMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.LiteratureDetail">
+    <id column="literatureid" jdbcType="VARCHAR" property="literatureid" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.chaoxing.gsd.modules.entity.LiteratureDetail">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    literatureid, createtime
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  
+  <!-- 查询文献简报 -->
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from literature_detail
+    where literatureid = #{literatureid,jdbcType=VARCHAR}
+  </select>
+  
+  <!-- 删除文献简报 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from literature_detail
+    where literatureid = #{literatureid,jdbcType=VARCHAR}
+  </delete>
+  
+  <!-- 插入文献简报 -->
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDetail">
+    insert into literature_detail (literatureid, content
+      )
+    values (#{literatureid,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDetail">
+    insert into literature_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="literatureid != null">
+        literatureid,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="literatureid != null">
+        #{literatureid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDetail">
+    update literature_detail
+    <set>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where literatureid = #{literatureid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDetail">
+    update literature_detail
+    set createtime = #{createtime,jdbcType=TIMESTAMP},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where literatureid = #{literatureid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDetail">
+    update literature_detail
+    set createtime = #{createtime,jdbcType=TIMESTAMP}
+    where literatureid = #{literatureid,jdbcType=VARCHAR}
+  </update>
+</mapper>

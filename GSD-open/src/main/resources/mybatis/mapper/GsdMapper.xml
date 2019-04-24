@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.GsdMapper" >
+
+    <insert id="insertGsd" parameterType="com.chaoxing.gsd.modules.entity.Gsd">
+        insert into gsd(userid,categoryid1,categoryid2) values(#{userid}, #{categoryid1},#{categoryid2})
+    </insert>
+
+    <delete id="delGsd" parameterType="com.chaoxing.gsd.modules.entity.Gsd">
+        delete from gsd where userid=#{userid} and categoryid1=#{categoryid1} and  categoryid2=#{categoryid2}
+    </delete>
+
+    <select id="getCategoryid2" parameterType="com.chaoxing.gsd.modules.entity.Gsd" resultType="String">
+        select categoryid2 from gsd where userid=#{userid} and categoryid1=#{categoryid1}
+    </select>
+
+    <select id="getGsd" parameterType="com.chaoxing.gsd.modules.entity.Gsd"
+            resultType="com.chaoxing.gsd.modules.entity.Gsd">
+        select * from gsd where userid=#{userid} and categoryid1=#{categoryid1} and categoryid2=#{categoryid2}
+    </select>
+
+	<!-- 查询特定某些库下index名称 -->
+	<select id="getSpecailGsd" parameterType="java.util.Map"
+            resultType="com.chaoxing.gsd.modules.entity.Gsd">
+        select t.userid as userid, 
+        t.categoryid1 as categoryid1, 
+        t.categoryid2 as categoryid2, 
+        f.type as type 
+        from gsd t left join gsdlib f on t.categoryid2 = f.libid where t.userid=#{userid} and t.categoryid1 in (${alltype}) order by t.categoryid1 desc
+    </select>
+
+
+</mapper>

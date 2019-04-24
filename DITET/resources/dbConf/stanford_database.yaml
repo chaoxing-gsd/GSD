@@ -1,0 +1,17 @@
+fieldList:
+- {table_field_name: id}
+- {table_field_name: basic_title, index_field_name: basic_title, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: basic_creator, index_field_name: basic_creator, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: basic_contributor,index_field_name: basic_contributor, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: contents, index_field_name: contents, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: subjects, index_field_name: subjects, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: genre, index_field_name: genre, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: databases_topics, index_field_name: databases_topics, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: basic_date, index_field_name: basic_date, index_field_type: text, fielddata: true}
+- {table_field_name: title_variation, index_field_name: title_variation, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: note, index_field_name: note, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: access, index_field_name: access, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: formmat, index_field_name: formmat, index_field_type: text}
+- {table_field_name: basic_link_url, index_field_name: basic_link_url, index_field_type: text}
+
+

@@ -1,0 +1,11 @@
+fieldList:
+- {table_field_name: basic_date_time, index_field_name: basic_date_time, index_field_type: text, index: false}
+- {table_field_name: basic_creator, index_field_name: basic_creator, index_field_type: text, index: false}
+- {table_field_name: shengfen, index_field_name: shengfen, index_field_type: text, index: false}
+- {table_field_name: basic_cover_url, index_field_name: basic_cover_url, index_field_type: text, index: false}
+- {table_field_name: basic_identifier_1, index_field_name: basic_identifier_1, index_field_type: text, index: false}
+- {table_field_name: basic_contact, index_field_name: basic_contact, index_field_type: text, index: false}
+- {table_field_name: special_organization1, index_field_name: special_organization1, index_field_type: text, index: false}
+- {table_field_name: basic_title, index_field_name: basic_title, index_field_type: text, index_analyzer: standard}
+- {table_field_name: basic_title_url, index_field_name: basic_title_url, index_field_type: text, index: false}
+

@@ -1,0 +1,10 @@
+fieldList:
+- {table_field_name: basic_title, index_field_name: basic_title, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_creator, index_field_name: basic_creator, index_field_type: text}
+- {table_field_name: basic_category_no, index_field_name: basic_category_no, index_field_type: text}
+- {table_field_name: basic_page, index_field_name: basic_page, index_field_type: text}
+- {table_field_name: basic_language, index_field_name: basic_language, index_field_type: text}
+- {table_field_name: basic_description, index_field_name: basic_description, index_field_type: text}
+- {table_field_name: basic_sourcename, index_field_name: basic_sourcename, index_field_type: text}
+- {table_field_name: proc_doi_id, index_field_name: proc_doi_id, index_field_type: text}
+- {table_field_name: basic_title_url, index_field_name: basic_title_url, index_field_type: text}

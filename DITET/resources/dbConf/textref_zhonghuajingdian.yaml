@@ -1,0 +1,12 @@
+fieldList:
+- {table_field_name: primary_id}
+- {table_field_name: title, index_field_name: title, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: dynasty, index_field_name: dynasty, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: author,index_field_name: author, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: edition, index_field_name: edition, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: collection, index_field_name: collection, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: notes, index_field_name: notes, index_field_type: text, index_analyzer: ik_max_word, fielddata: true}
+- {table_field_name: typeId}
+- {table_field_name: libId}
+
+

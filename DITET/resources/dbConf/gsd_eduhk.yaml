@@ -1,0 +1,9 @@
+fieldList:
+- {table_field_name: basic_cover_url, index_field_name: basic_cover_url, index_field_type: text}
+- {table_field_name: basic_title, index_field_name: basic_title, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_position,index_field_name: basic_position, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_position1, index_field_name: basic_position1, index_field_type: text}
+- {table_field_name: basic_orcid, index_field_name: basic_orcid, index_field_type: text}
+- {table_field_name: basic_publicationurl, index_field_name: basic_publicationurl, index_field_type: text}
+- {table_field_name: basic_publicationnumber, index_field_name: basic_publicationnumber, index_field_type: text}
+- {table_field_name: basic_title_url, index_field_name: basic_title_url, index_field_type: text}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.UserFileMainMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.UserFileMain">
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="fileid" jdbcType="INTEGER" property="fileid" />
+    <result column="extend" jdbcType="VARCHAR" property="extend" />
+  </resultMap>
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.UserFileMain">
+    insert into user_file_main (userid, fileid, extend
+      )
+    values (#{userid,jdbcType=VARCHAR}, #{fileid,jdbcType=INTEGER}, #{extend,jdbcType=VARCHAR}
+      )
+  </insert>
+  
+  <!-- 按字段属性插入关联关系 -->
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.UserFileMain">
+    insert into user_file_main
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="fileid != null">
+        fileid,
+      </if>
+      <if test="extend != null">
+        extend,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="fileid != null">
+        #{fileid,jdbcType=INTEGER},
+      </if>
+      <if test="extend != null">
+        #{extend,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  
+  <!-- 删除用户下某个文件关联信息 -->
+  <delete id="deleteByPrimaryKey" parameterType="com.chaoxing.gsd.modules.entity.UserFileMain">
+    delete from user_file_main
+    where fileid = #{fileid,jdbcType=INTEGER} and userid = #{userid,jdbcType=VARCHAR}
+  </delete>
+  
+</mapper>

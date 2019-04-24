@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.chaoxing.gsd.modules.mapper.Biogref_DnbMapper" >
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.Biogref_Dnb" >
+    <result column="person_id" property="personId" jdbcType="VARCHAR" />
+    <result column="person_name" property="personName" jdbcType="VARCHAR" />
+    <result column="born_year" property="bornYear" jdbcType="VARCHAR" />
+    <result column="died_year" property="diedYear" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="dynasty" property="dynasty" jdbcType="VARCHAR" />
+    <result column="jiguan" property="jiguan" jdbcType="VARCHAR" />
+    <result column="shengfen" property="shengfen" jdbcType="VARCHAR" />
+    <result column="shiqu" property="shiqu" jdbcType="VARCHAR" />
+    <result column="lon_lat" property="lonLat" jdbcType="VARCHAR" />
+    <result column="typeid" property="typeid" jdbcType="VARCHAR" />
+    <result column="libid" property="libid" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.Biogref_Dnb" >
+    insert into biogref_dnb (person_id, person_name, born_year, 
+      died_year, gender, dynasty, 
+      jiguan, shengfen, shiqu, 
+      lon_lat, typeid, libid
+      )
+    values (#{personId,jdbcType=VARCHAR}, #{personName,jdbcType=VARCHAR}, #{bornYear,jdbcType=VARCHAR}, 
+      #{diedYear,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{dynasty,jdbcType=VARCHAR}, 
+      #{jiguan,jdbcType=VARCHAR}, #{shengfen,jdbcType=VARCHAR}, #{shiqu,jdbcType=VARCHAR}, 
+      #{lonLat,jdbcType=VARCHAR}, #{typeid,jdbcType=VARCHAR}, #{libid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.Biogref_Dnb" >
+    insert into biogref_dnb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="personId != null" >
+        person_id,
+      </if>
+      <if test="personName != null" >
+        person_name,
+      </if>
+      <if test="bornYear != null" >
+        born_year,
+      </if>
+      <if test="diedYear != null" >
+        died_year,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="dynasty != null" >
+        dynasty,
+      </if>
+      <if test="jiguan != null" >
+        jiguan,
+      </if>
+      <if test="shengfen != null" >
+        shengfen,
+      </if>
+      <if test="shiqu != null" >
+        shiqu,
+      </if>
+      <if test="lonLat != null" >
+        lon_lat,
+      </if>
+      <if test="typeid != null" >
+        typeid,
+      </if>
+      <if test="libid != null" >
+        libid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="personId != null" >
+        #{personId,jdbcType=VARCHAR},
+      </if>
+      <if test="personName != null" >
+        #{personName,jdbcType=VARCHAR},
+      </if>
+      <if test="bornYear != null" >
+        #{bornYear,jdbcType=VARCHAR},
+      </if>
+      <if test="diedYear != null" >
+        #{diedYear,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="dynasty != null" >
+        #{dynasty,jdbcType=VARCHAR},
+      </if>
+      <if test="jiguan != null" >
+        #{jiguan,jdbcType=VARCHAR},
+      </if>
+      <if test="shengfen != null" >
+        #{shengfen,jdbcType=VARCHAR},
+      </if>
+      <if test="shiqu != null" >
+        #{shiqu,jdbcType=VARCHAR},
+      </if>
+      <if test="lonLat != null" >
+        #{lonLat,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=VARCHAR},
+      </if>
+      <if test="libid != null" >
+        #{libid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectShengfen" resultType="String">
+    select shengfen from biogref_dnb
+  </select>
+
+  <select id="selectShiqu" resultType="String" parameterType="String">
+    select shiqu from biogref_dnb where shengfen=#{shengfen}
+  </select>
+
+  <select id="selectCountByGis" resultType="Integer" parameterType="com.chaoxing.gsd.modules.entity.Gis">
+    select count(*) from biogref_dnb where shengfen=#{province} and shiqu=#{city}
+  </select>
+
+
+</mapper>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.LiteratureCompDetailMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.LiteratureCompDetail">
+    <result column="labelid" jdbcType="INTEGER" property="labelid" />
+    <result column="literatureid" jdbcType="VARCHAR" property="literatureid" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="indexname" jdbcType="VARCHAR" property="indexname" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    labelid, literatureid, type, indexname, createtime
+  </sql>
+  
+  <!-- 根据标签id查询标签下所有库id -->
+  <select id="selectLibIdByLabelId" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.LiteratureCompDetail">
+    select 
+    t.indexname as indexname, 
+    count(1) as labelid  
+    from literature_comp_detail t 
+    where t.labelid = #{labelid} group by t.indexname
+  </select>
+  
+  <!-- 根据标签id查询标签下所有比较文献id -->
+  <select id="selectByLabelId" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from literature_comp_detail
+    where labelid = #{labelid}
+  </select>
+  
+  <!-- 文献对比删除接口，根据标签id删除所有文献记录 -->
+  <delete id="deleteAllByLabelId" parameterType="java.lang.Integer">
+    delete from literature_comp_detail
+    where labelid = #{labelid,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 文献对比删除接口，根据标签id和文献id删除记录 -->
+  <delete id="deleteByLabelId" parameterType="java.util.Map">
+    delete from literature_comp_detail
+    where labelid = #{labelid} and literatureid = #{literatureid}
+  </delete>
+  
+  <!-- 文献对比记录添加 -->
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompDetail">
+    insert into literature_comp_detail (labelid, literatureid, type, 
+      indexname)
+    values (#{labelid,jdbcType=INTEGER}, #{literatureid,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{indexname,jdbcType=VARCHAR})
+  </insert>
+  
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompDetail">
+    insert into literature_comp_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="labelid != null">
+        labelid,
+      </if>
+      <if test="literatureid != null">
+        literatureid,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="indexname != null">
+        indexname,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="labelid != null">
+        #{labelid,jdbcType=INTEGER},
+      </if>
+      <if test="literatureid != null">
+        #{literatureid,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="indexname != null">
+        #{indexname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

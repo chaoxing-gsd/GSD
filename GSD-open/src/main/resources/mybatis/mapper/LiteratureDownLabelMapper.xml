@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.LiteratureDownLabelMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.LiteratureDownLabel">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="labelname" jdbcType="VARCHAR" property="labelname" />
+    <result column="userid" jdbcType="VARCHAR" property="userid" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, labelname, userid, createtime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from literature_down_label
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 查询用户下是否已经存在同名标签 -->
+  <select id="getCount" parameterType="java.util.Map" resultType="com.chaoxing.gsd.modules.entity.LiteratureDownLabel">
+    select 
+    count(1) as id
+    from literature_down_label
+    where userid = #{userid} and labelname = #{labelname}
+  </select>
+  
+  <!-- 根据主键删除下载标签记录 -->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from literature_down_label
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDownLabel">
+    insert into literature_down_label (id, labelname, userid, 
+      createtime)
+    values (#{id,jdbcType=INTEGER}, #{labelname,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <!-- 按条件插入 -->
+  <insert id="insertSelective" useGeneratedKeys="true" keyColumn="id" keyProperty="id"  
+  parameterType="com.chaoxing.gsd.modules.entity.LiteratureDownLabel">
+    insert into literature_down_label
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="labelname != null">
+        labelname,
+      </if>
+      <if test="userid != null">
+        userid,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="labelname != null">
+        #{labelname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    <selectKey resultType="int" keyProperty="id" order="AFTER">
+        SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  
+  <!-- 通过id更新标签信息 -->
+  <update id="updateByPrimaryKeySelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDownLabel">
+    update literature_down_label
+    <set>
+      <if test="labelname != null">
+        labelname = #{labelname,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userid = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 根据用户id查询其下所有标签 -->
+  <select id="selectByUserId" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from literature_down_label
+    where userid = #{userid}
+  </select>
+  
+  <update id="updateByPrimaryKey" parameterType="com.chaoxing.gsd.modules.entity.LiteratureDownLabel">
+    update literature_down_label
+    set labelname = #{labelname,jdbcType=VARCHAR},
+      userid = #{userid,jdbcType=VARCHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.LiteratureCompLibFiledMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.LiteratureCompLibFiled">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="libid" jdbcType="VARCHAR" property="libid" />
+    <result column="filedid" jdbcType="VARCHAR" property="filedid" />
+    <result column="filednamecn" jdbcType="VARCHAR" property="filednamecn" />
+    <result column="filednameen" jdbcType="VARCHAR" property="filednameen" />
+    <result column="orderlist" jdbcType="INTEGER" property="orderlist" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, libid, filedid, filednamecn, filednameen, orderlist
+  </sql>
+  
+  <!-- 通过库id查询库需要展示的字段，按展示顺序排列 -->
+  <select id="selectByLibid" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from literature_comp_lib_filed
+    where libid = #{libid,jdbcType=VARCHAR} order by orderlist
+  </select>
+  
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from literature_comp_lib_filed
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from literature_comp_lib_filed
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompLibFiled">
+    insert into literature_comp_lib_filed (id, libid, filedid, 
+      filednamecn, filednameen, orderlist)
+    values (#{id,jdbcType=INTEGER}, #{libid,jdbcType=VARCHAR}, #{filedid,jdbcType=VARCHAR}, 
+      #{filednamecn,jdbcType=VARCHAR}, #{filednameen,jdbcType=VARCHAR}, #{orderlist,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompLibFiled">
+    insert into literature_comp_lib_filed
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="libid != null">
+        libid,
+      </if>
+      <if test="filedid != null">
+        filedid,
+      </if>
+      <if test="filednamecn != null">
+        filednamecn,
+      </if>
+      <if test="filednameen != null">
+        filednameen,
+      </if>
+      <if test="orderlist != null">
+        orderlist,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="libid != null">
+        #{libid,jdbcType=VARCHAR},
+      </if>
+      <if test="filedid != null">
+        #{filedid,jdbcType=VARCHAR},
+      </if>
+      <if test="filednamecn != null">
+        #{filednamecn,jdbcType=VARCHAR},
+      </if>
+      <if test="filednameen != null">
+        #{filednameen,jdbcType=VARCHAR},
+      </if>
+      <if test="orderlist != null">
+        #{orderlist,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompLibFiled">
+    update literature_comp_lib_filed
+    <set>
+      <if test="libid != null">
+        libid = #{libid,jdbcType=VARCHAR},
+      </if>
+      <if test="filedid != null">
+        filedid = #{filedid,jdbcType=VARCHAR},
+      </if>
+      <if test="filednamecn != null">
+        filednamecn = #{filednamecn,jdbcType=VARCHAR},
+      </if>
+      <if test="filednameen != null">
+        filednameen = #{filednameen,jdbcType=VARCHAR},
+      </if>
+      <if test="orderlist != null">
+        orderlist = #{orderlist,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompLibFiled">
+    update literature_comp_lib_filed
+    set libid = #{libid,jdbcType=VARCHAR},
+      filedid = #{filedid,jdbcType=VARCHAR},
+      filednamecn = #{filednamecn,jdbcType=VARCHAR},
+      filednameen = #{filednameen,jdbcType=VARCHAR},
+      orderlist = #{orderlist,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

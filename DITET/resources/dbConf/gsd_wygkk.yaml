@@ -1,0 +1,12 @@
+fieldList:
+- {table_field_name: basic_title_url, index_field_name: basic_title_url, index_field_type: keyword}
+- {table_field_name: basic_cover_url, index_field_name: basic_cover_url, index_field_type: keyword}
+- {table_field_name: basic_title, index_field_name: basic_title, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: basic_title1, index_field_name: basic_title1, index_field_type: text, index_analyzer: ik_max_word}
+- {table_field_name: basic_creator, index_field_name: basic_creator, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_language, index_field_name: basic_language, index_field_type: keyword}
+- {table_field_name: special_organization1, index_field_name: special_organization1, index_field_type: text, index_analyzer: ik_smart}
+- {table_field_name: basic_description, index_field_name: basic_description, index_field_type: text}
+- {table_field_name: downloadCount, index_field_name: downloadCount, index_field_type: integer}
+- {table_field_name: viewCount, index_field_name: viewCount, index_field_type: integer}
+

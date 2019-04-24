@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.LiteratureCompShowSetMapper">
+  <resultMap id="BaseResultMap" type="com.chaoxing.gsd.modules.entity.LiteratureCompShowSet">
+    <result column="labelid" jdbcType="INTEGER" property="labelid" />
+    <result column="filedsnamecn" jdbcType="VARCHAR" property="filedsnamecn" />
+    <result column="filedids" jdbcType="VARCHAR" property="filedids" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+  </resultMap>
+  
+  <sql id="Base_Column_List">
+    labelid, filedsnamecn, filedids, updatetime, createtime, version  
+  </sql>
+  
+  <!-- 根据labelid删除旧版本显示设置 -->
+  <delete id="deleteByLabelId" parameterType="java.lang.Integer">
+    delete from literature_comp_show_set
+    where labelid = #{labelid,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 通过用户id和文献比较id获取用户默认的显示配置 -->
+  <select id="selectShowSet" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompShowSet" resultMap="BaseResultMap">
+    select 
+    t.filedsnamecn as filedsnamecn, 
+    t.filedids as filedids, 
+    t.version as version
+    from literature_comp_show_set t left join literature_comp_label f 
+    on t.labelid = f.id   
+    where t.labelid = #{labelid,jdbcType=INTEGER} and t.version = f.version
+  </select>
+  
+  <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompShowSet">
+    insert into literature_comp_show_set (labelid, filedsnamecn, 
+      filedids, updatetime, createtime, version 
+      )
+    values (#{labelid,jdbcType=INTEGER}, #{filedsnamecn,jdbcType=VARCHAR}, 
+      #{filedids,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP}, #{version,jdbcType=VARCHAR}
+      )
+  </insert>
+  
+  <!-- 根据值情况按列更新文献对比展示列设置 -->
+  <update id="updateByPrimaryKeySelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompShowSet">
+    update literature_comp_show_set
+    <set>
+      <if test="filedsnamecn != null">
+        filedsnamecn = #{filedsnamecn,jdbcType=VARCHAR},
+      </if>
+      <if test="filedids != null">
+        filedids = #{filedids,jdbcType=VARCHAR},
+      </if> 
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>  
+    </set>
+    where labelid = #{labelid,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 选择列插入数据 -->
+  <insert id="insertSelective" parameterType="com.chaoxing.gsd.modules.entity.LiteratureCompShowSet">
+    insert into literature_comp_show_set
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="labelid != null">
+        labelid,
+      </if>
+      <if test="filedsnamecn != null">
+        filedsnamecn,
+      </if>
+      <if test="filedids != null">
+        filedids,
+      </if>
+      <if test="updatetime != null">
+        updatetime,
+      </if>
+      <if test="createtime != null">
+        createtime,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="labelid != null">
+        #{labelid,jdbcType=INTEGER},
+      </if>
+      <if test="filedsnamecn != null">
+        #{filedsnamecn,jdbcType=VARCHAR},
+      </if>
+      <if test="filedids != null">
+        #{filedids,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

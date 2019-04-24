@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.ExportLiteratureRecordDetailMapper" >
+
+	<!-- 获取用户文献导出次数 -->
+    <select id="getRecordCount" parameterType="String" resultType="Integer">
+        select count(1) from export_literature_record_detail t where t.userid=#{userid}
+    </select>
+
+	<!-- 新增文献导出详情记录 -->
+    <insert id="insertOne" parameterType="com.chaoxing.gsd.modules.entity.ExportLiteratureRecordDetail">
+        insert into export_literature_record_detail(userid, recordid, literatureid) values(#{userid}, #{recordid}, #{literatureid})
+    </insert>
+    
+</mapper>

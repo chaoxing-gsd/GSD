@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chaoxing.gsd.modules.mapper.GsdUser2Mapper" >
+
+
+    <insert id="insert" parameterType="com.chaoxing.gsd.modules.entity.GsdUser2">
+        insert into gsduser2(userid,opensearchrecord,sharewebpage) values(#{userid},#{opensearchrecord},#{sharewebpage})
+    </insert>
+
+    <select id="find" parameterType="String" resultType="com.chaoxing.gsd.modules.entity.GsdUser2">
+        select * from gsduser2 where userid=#{userid}
+    </select>
+
+    <update id="open" parameterType="String" >
+        update gsduser2 set opensearchrecord=true where userid=#{userid}
+    </update>
+
+    <update id="close" parameterType="String" >
+        update gsduser2 set opensearchrecord=false where userid=#{userid}
+    </update>
+
+    <update id="openShareWebpage" parameterType="String" >
+        update gsduser2 set sharewebpage=true where userid=#{userid}
+    </update>
+
+    <update id="closeShareWebpage" parameterType="String" >
+        update gsduser2 set sharewebpage=false where userid=#{userid}
+    </update>
+
+
+
+    <select id="findShareWebpageUsers"  resultType="com.chaoxing.gsd.modules.entity.GsdUser2">
+        select * from gsduser2 where sharewebpage=1
+    </select>
+
+</mapper>
