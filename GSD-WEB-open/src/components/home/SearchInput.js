@@ -210,7 +210,7 @@ class HomeSearchInput extends Component {
                     }
                     {
                         !hideIcon && <div className="searchDetail" onClick={()=>this.toSearchPage("",1)}>
-                            高级检索
+                            定向检索
                         </div>
                     }
                 </div>

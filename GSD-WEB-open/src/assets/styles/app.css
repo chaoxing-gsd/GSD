@@ -2089,11 +2089,11 @@ background-color:#F44336;
 
 .searchDetail{
     display: inline-block;
-    margin-left: 5px;
+    margin-left: 10px;
     cursor: pointer;
     background-color: #8c1515;
     color: #ffffff;
-    font-size: 20px;
-    padding: 11.5px 5px;
-    border: solid 4px #efcccc;
+    font-size: 15px;
+    padding: 6px 4px;
+    /* border: solid 4px #efcccc; */
 }

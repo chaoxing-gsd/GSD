@@ -253,7 +253,7 @@ class AddNewDb extends Component {
                 })         
             }else{
                 swal({
-                    title: "校验失败",
+                    title: "索引名称已存在",
                     type: 'error',
                     showCancelButton: false,
                     confirmButtonColor: '#3085d6',
@@ -509,7 +509,7 @@ class AddNewDb extends Component {
                                                 <input className="uploadFileInput" type="file" id="upload-text-file" onChange={(e)=>this.onSelectFile(e)}/>
                                                 <div><a className="btn btn-warning btn-block"><i className="glyphicon glyphicon-upload"></i>上传文件</a></div>
                                             </div>
-                                            <a href="/templates/第三方数据模板.csv" style={{marginTop:'5px',display:'block'}}>下载模板</a>
+                                            <a href="/templates/module.csv" style={{marginTop:'5px',display:'block'}}>下载模板</a>
 
                                             {!!this.state.dbData.fileName && <div style={{marginTop:'1.5rem'}}>
                                                 <ul>

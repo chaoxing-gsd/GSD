@@ -278,7 +278,7 @@ class TopTools extends Component {
     render() {
         const {classes}=this.props;
         return <div><div className="top-tool-bar" style={{display:this.props.personality.pageInfos.editMode&&this.props.tabIndex==1?"none":"block"}}>
-            <div className="top-tool-bar-wrapper clearfix">
+            <div className="top-tool-bar-wrapper clearfix" style={{display:"none"}}>
                 {
 
                // <div className="btn-group">
