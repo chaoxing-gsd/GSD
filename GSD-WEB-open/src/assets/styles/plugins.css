@@ -1,0 +1,157 @@
+/**
+home page search input styles
+**/
+
+.searchInputContainer{
+    margin:30px auto 10px auto;
+}
+.searchInputWrapper{
+    display: inline-block;
+    width: 83%;
+    /* width: 100%; */
+    border: solid 4px #efcccc;
+    position: relative;
+    transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+.searchInputWrapper .searchInput{
+    width:100%;
+    border:none;
+    height: 54px;
+    text-indent: 12px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    outline:0;
+    color:#000000;
+}
+
+.searchInputWrapper .searchInput:focus,.searchInputWrapper .searchInput:active{
+    outline:0;
+}
+.searchInputWrapper .searchBtn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color:#e0e0e0;
+    display: block;
+    width: 40px;
+    line-height: 60px;
+    cursor: pointer;
+    outline:0;
+}
+
+.searchInputWrapper .searchBtn .glyphicon{
+    color:#d5d5d5;
+    font-size:1.6rem;
+}
+
+.searchInputWrapper .searchInput:focus,.searchInputWrapper .searchInput:active{
+    box-shadow: 0 0 0 rgba(21,101,192,.62);
+    animation: pulse .3s;
+}
+.searchInputContainer.active .searchInputWrapper .searchBtn .glyphicon{
+    color: #b53535;
+}
+.searchInputContainer.active .searchInputWrapper {
+    border-color: #b53535;
+}
+
+
+.searchInputContainer.small{
+    width:240px;
+    margin:0;
+}
+
+.searchInputContainer.small .searchInputWrapper{
+    width: 100%;
+    border: solid 1px #efcccc;
+    position: relative;
+    transition: all .3s;
+    -moz-transition: all .3s;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+}
+
+.searchInputContainer.small .searchInputWrapper .searchInput{
+    width:100%;
+    border:none;
+    text-indent: 4px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    border: none;
+    outline:0;
+    color:#000000;
+    padding:0;
+    height:30px;
+}
+
+.searchInputContainer.small .searchInputWrapper .searchBtn{
+    line-height: 1.5em;
+    width: auto;
+    padding-right: 5px;
+
+}
+
+.searchInputContainer.small  .searchInputWrapper .searchBtn .glyphicon{
+    font-size: 1.5em;
+    top: 0.4em;
+    color: #7b7979;
+}
+
+.iframeResultContainer{
+    width:100%;
+    height:100%;
+    display:inline-block;
+
+}
+
+@media (min-width: 768px) {
+    .cx-home-wrapper .searchInputContainer {
+        width: 640px;
+    }
+
+    .searchInputContainer{
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px){
+    .right-bar {
+        display: none;
+    }
+    .left-bar{
+        width:100%;
+    }
+    .navbar-header.result-header{
+        display: inline-block;
+        float: left;
+    }
+
+    .searchInputContainer.small{
+        width: auto;
+        margin: 0;
+        display: inline-block;
+        position:absolute;
+        left:20px;
+        right:70px;
+    }
+
+    .navbar-default .navbar-toggle.result-page{
+        margin:0;
+    }
+}
+
+
+.right-bar.showFull {
+    display: block;
+    width:100%;
+}
+.left-bar.hide{
+   display:none;
+}

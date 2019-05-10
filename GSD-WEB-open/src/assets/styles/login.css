@@ -1,0 +1,125 @@
+a,a:focus{
+    outline:0;
+}
+
+.login-logo{
+    color: #8c1515;
+    font-weight: bold;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-family: Microsoft YaHei,YouYuan,SimHei;
+    font-size: 2em;
+}
+.login-title{
+    padding-bottom: 0;
+    padding-top: 16px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.3333;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #212121;
+}
+
+.desc {
+    font-size: 16px;
+    letter-spacing: .1px;
+    line-height: 1.5;
+    padding-bottom: 0;
+    padding-top: 8px;
+}
+
+.login-form{
+    font-size: .1px;
+    -webkit-transform: translatez(0);
+    transform: translatez(0);
+    white-space: nowrap;
+}
+
+.login-form .wrapper{
+    display: inline-block;
+    font-size: 15px;
+    padding: 24px 0 0;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    vertical-align: top;
+    white-space: normal;
+    width: 100%;
+}
+
+.qrcode{
+    margin-top:40px;
+    position:relative;
+}
+
+.qrcode-wrapper{
+    width:70%;
+    text-align:center;
+    margin:0 auto;
+}
+
+.qrcode-tip{
+    font-size:1.2em;
+    padding-bottom:1.2em;
+    text-align:center;
+}
+.login-dialog{
+    transition: left 1s;
+    -moz-transition: left 1s;
+    -webkit-transition: left 1s;
+    -o-transition: left 1s;
+}
+
+.hideQrcode .login-dialog{
+    left: 29.1666666%
+}
+.qrcode-dialog{
+    transition: left 1s,opacity 2s;
+    -moz-transition: left 1s,opacity 2s;
+    -webkit-transition: left 1s,opacity 2s;
+    -o-transition: left 1s,opacity 2s;
+}
+
+.link{
+    font-size:13px;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+.register-link{
+    display:inline-block;
+
+}
+
+
+.forget-link{
+    float:right;
+    display:inline-block;
+}
+
+.hideQrcode .qrcode-dialog{
+    z-index:-1;
+    position:absolute;
+    opacity:0;
+    -webkit-opacity:0;
+    -moz-opacity: 0;
+    filter:alpha(opacity=0);
+    left:-8.33333333%;
+}
+
+.dialog-content{
+    width:300px;
+}
+
+@media (max-width: 768px) {
+    .qrcode{
+        display:none;
+    }
+
+    .hideQrcode  .login-dialog {
+        left:0;
+    }
+    .dialog-content{
+        width:100%;
+    }
+}

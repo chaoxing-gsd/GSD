@@ -1,0 +1,143 @@
+body{
+  background-color:#f2f2f5!important;
+  color: #666666;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul,li{
+  padding:0;
+  list-style:none;
+  margin:0;
+}
+
+.earthBg{
+  background:#eeeeee url('/sourceImages/bg.gif') no-repeat top center;
+  background-size: contain;
+  padding-bottom:210px;
+}
+
+.whiteBg{
+  background-color:#ffffff;
+  padding-top:30px;
+  padding-bottom:30px;
+}
+.grayBg{
+  background-color:#eeeeee;
+  padding-top:30px;
+  padding-bottom:30px;
+}
+.cx-home-wrapper{
+  margin: 80px 0 10px 0;
+  text-align:center
+}
+
+.header{
+  background:none;
+}
+
+
+.co-item{
+  margin-top:15px;
+}
+.co-item>img{
+  width:40px;
+  height:40px;
+}
+
+.co-item .desc{
+  display:inline-block;
+  margin-left:10px;
+}
+
+.co-item .desc a{
+  color: #676464;
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 375px) {
+  
+
+}
+
+
+.home-title{
+  border-left:solid 10px #8c1515;
+  color:#8c1515;
+  font-family: Microsoft YaHei,YouYuan,SimHei;
+  text-indent: 0.6em;
+  font-weight:bold;
+}
+.data-icons{
+  text-align: center;
+  padding: 0;
+  border: solid 1px #efebeb;
+  width: 70%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 10px #ccc;
+  padding-bottom:10px;
+  position:relative;
+}
+
+
+
+.slick-slider .slick-list, .slick-slider .slick-track{
+  padding-bottom:20px;
+}
+
+.dataLabel{
+  white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+  padding-left:0.8em;
+  padding-right:0.8em;
+  font-size:12px;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: .75;
+  color: #8c1515;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 #efcccc;
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(239, 204, 204, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 60px rgba(239, 204, 204, 0);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .searchInputContainer{
+    width:100%;
+    margin:30px auto 10px auto;
+  }
+
+  .earthBg{
+    padding-bottom:110px;
+  }
+
+  .co-item .desc a{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width:5.5em;
+    display:inline-block;
+  }
+
+  .co-item>img {
+    margin-top: -10px;
+  }
+
+  .cx-home-wrapper{
+    margin-top:20px;
+  }
+}

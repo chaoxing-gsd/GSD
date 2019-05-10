@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <!--<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en,Intl.~locale.zh"></script>-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" charset="UTF-8">
+    <link href='/css/font-awesome.min.css' rel='stylesheet' charset="UTF-8">
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="/css/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/slick-theme.min.css" />
+    <link href="/javascript/nprogress/nprogress.css" rel="stylesheet">
+    <script src="/javascript/nprogress/nprogress.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?ak=QkskOCiVsbGNGvtwNCkw5u7fb8hftV5l"></script>
+    <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>-->
+    <!--<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>-->
+    <!--
+
+      Notice the use of %PUBLIC_URL% in the tag above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <script>
+
+      var ua=navigator.userAgent;
+
+      function startProgress() {
+      NProgress.start()
+      }
+
+      function doneProgress() {
+      NProgress.done()
+
+      }
+
+      function isAndroid() {
+        return ua.indexOf('Android') > 0;
+      }
+
+      function isIOS() {
+        return /(iPhone|iPad|iPod)/i.test(ua);
+      }
+
+
+      function setUserInfo(userInfos){
+        if(!!userInfos){
+          localStorage.setItem(userInfoKey,JSON.stringify(userInfos));
+        }
+      }
+
+
+
+
+
+
+
+//
+//      /****ios交互****/
+//      function setupWebViewJavascriptBridge(callback) {
+//        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+//        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+//        window.WVJBCallbacks = [callback];
+//        var WVJBIframe = document.createElement('iframe');
+//        WVJBIframe.style.display = 'none';
+//        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+//        document.documentElement.appendChild(WVJBIframe);
+//        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+//      }
+//
+//
+//      setupWebViewJavascriptBridge(function(bridge) {
+//        var uniqueId = 1
+//
+//        function log(message, data) {
+//          var log = document.getElementById('log')
+//          var el = document.createElement('div')
+//          el.className = 'logLine'
+//          el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+//          if (log.children.length) {
+//            log.insertBefore(el, log.children[0])
+//          } else {
+//            log.appendChild(el)
+//          }
+//        }
+//      });
+
+
+
+    </script>
+    <title>全球智慧数据平台 </title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start`.
+      To create a production bundle, use `npm run build`.
+    -->
+    
+    <!-- <script src="/webpack-dev-server.js"></script> -->
+  </body>
+</html>
