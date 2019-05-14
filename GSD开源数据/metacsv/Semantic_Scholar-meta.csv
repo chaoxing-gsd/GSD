@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/Semantic_Scholar-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/Semantic_Scholar.json
+ShortName,Semantic_Scholar
+LongName,Semantic_Scholar

@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/kaneijimeilongdaxue-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/kaneijimeilongdaxue.json
+ShortName,kaneijimeilongdaxue
+LongName,kaneijimeilongdaxue

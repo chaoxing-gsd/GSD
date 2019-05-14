@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/jisuanke-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/jisuanke.json
+ShortName,jisuanke
+LongName,jisuanke

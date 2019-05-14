@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/Springer Link-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/Springer Link.json
+ShortName,Springer Link
+LongName,Springer Link

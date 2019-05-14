@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/zhongdawangxiao-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/zhongdawangxiao.json
+ShortName,zhongdawangxiao
+LongName,zhongdawangxiao

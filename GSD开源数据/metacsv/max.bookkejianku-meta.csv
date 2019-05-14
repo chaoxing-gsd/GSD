@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/max.bookkejianku-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/max.bookkejianku.json
+ShortName,max.bookkejianku
+LongName,max.bookkejianku

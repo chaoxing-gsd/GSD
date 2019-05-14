@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/shijiexueshuhuiyiku-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/shijiexueshuhuiyiku.csv
+ShortName,shijiexueshuhuiyiku
+LongName,shijiexueshuhuiyiku

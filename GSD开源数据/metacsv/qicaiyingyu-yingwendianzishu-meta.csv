@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/qicaiyingyu-yingwendianzishu-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/qicaiyingyu-yingwendianzishu.json
+ShortName,qicaiyingyu-yingwendianzishu
+LongName,qicaiyingyu-yingwendianzishu

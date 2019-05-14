@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/yindiannadaxue-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/yindiannadaxue.json
+ShortName,yindiannadaxue
+LongName,yindiannadaxue

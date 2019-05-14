@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/Public Library of Science-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/Public Library of Science.json
+ShortName,Public Library of Science
+LongName,Public Library of Science

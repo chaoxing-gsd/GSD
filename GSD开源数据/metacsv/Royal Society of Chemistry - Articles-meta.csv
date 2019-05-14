@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/Royal Society of Chemistry - Articles-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/Royal Society of Chemistry - Articles.json
+ShortName,Royal Society of Chemistry - Articles
+LongName,Royal Society of Chemistry - Articles

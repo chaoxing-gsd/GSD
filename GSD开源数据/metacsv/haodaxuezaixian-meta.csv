@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/haodaxuezaixian-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/haodaxuezaixian.csv
+ShortName,haodaxuezaixian
+LongName,haodaxuezaixian

@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/Open Knowledge Repository-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/Open Knowledge Repository.csv
+ShortName,Open Knowledge Repository
+LongName,Open Knowledge Repository

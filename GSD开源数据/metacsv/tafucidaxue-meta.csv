@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/tafucidaxue-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/tafucidaxue.json
+ShortName,tafucidaxue
+LongName,tafucidaxue

@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/taiwanxueshuqikanku-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/taiwanxueshuqikanku.json
+ShortName,taiwanxueshuqikanku
+LongName,taiwanxueshuqikanku

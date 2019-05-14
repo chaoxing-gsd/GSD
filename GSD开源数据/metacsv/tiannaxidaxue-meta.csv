@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/tiannaxidaxue-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/tiannaxidaxue.json
+ShortName,tiannaxidaxue
+LongName,tiannaxidaxue

@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/tikuwang-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/tikuwang.json
+ShortName,tikuwang
+LongName,tikuwang

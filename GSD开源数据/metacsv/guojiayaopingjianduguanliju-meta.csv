@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/guojiayaopingjianduguanliju-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/guojiayaopingjianduguanliju.json
+ShortName,guojiayaopingjianduguanliju
+LongName,guojiayaopingjianduguanliju

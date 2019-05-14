@@ -1,0 +1,5 @@
+Field,Value
+MetaURL,http://120.92.71.142:5001/static/csvfile/apabidianzitushu-meta.csv
+DataURL,http://120.92.71.142:5001/static/datafile/apabidianzitushu.csv
+ShortName,apabidianzitushu
+LongName,apabidianzitushu
