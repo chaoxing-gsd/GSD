@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/Safari tushu-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/Safari tushu.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/Safari tushu-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/Safari tushu.csv
 ShortName,Safari tushu
 LongName,Safari tushu

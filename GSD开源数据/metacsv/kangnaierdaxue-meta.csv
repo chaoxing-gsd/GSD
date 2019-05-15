@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/kangnaierdaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/kangnaierdaxue.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/kangnaierdaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/kangnaierdaxue.json
 ShortName,kangnaierdaxue
 LongName,kangnaierdaxue

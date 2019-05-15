@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/alabamadaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/alabamadaxue.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/alabamadaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/alabamadaxue.json
 ShortName,alabamadaxue
 LongName,alabamadaxue

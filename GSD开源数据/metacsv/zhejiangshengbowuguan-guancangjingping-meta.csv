@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/zhejiangshengbowuguan-guancangjingping-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/zhejiangshengbowuguan-guancangjingping.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/zhejiangshengbowuguan-guancangjingping-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/zhejiangshengbowuguan-guancangjingping.json
 ShortName,zhejiangshengbowuguan-guancangjingping
 LongName,zhejiangshengbowuguan-guancangjingping

@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/hafodaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/hafodaxue.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/hafodaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/hafodaxue.csv
 ShortName,hafodaxue
 LongName,hafodaxue

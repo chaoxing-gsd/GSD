@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/citeseerx mianfeilunwensousuowang-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/citeseerx mianfeilunwensousuowang.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/citeseerx mianfeilunwensousuowang-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/citeseerx mianfeilunwensousuowang.json
 ShortName,citeseerx mianfeilunwensousuowang
 LongName,citeseerx mianfeilunwensousuowang

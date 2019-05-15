@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/zhonggongjinrongren-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/zhonggongjinrongren.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/zhonggongjinrongren-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/zhonggongjinrongren.json
 ShortName,zhonggongjinrongren
 LongName,zhonggongjinrongren

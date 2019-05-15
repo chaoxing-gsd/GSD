@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/e-learning for kids-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/e-learning for kids.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/e-learning for kids-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/e-learning for kids.json
 ShortName,e-learning for kids
 LongName,e-learning for kids

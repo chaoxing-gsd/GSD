@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/zhishishijie-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/zhishishijie.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/zhishishijie-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/zhishishijie.csv
 ShortName,zhishishijie
 LongName,zhishishijie

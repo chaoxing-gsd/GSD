@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/niukewang-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/niukewang.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/niukewang-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/niukewang.json
 ShortName,niukewang
 LongName,niukewang

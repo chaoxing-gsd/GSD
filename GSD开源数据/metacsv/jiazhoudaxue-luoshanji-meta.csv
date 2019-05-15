@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/jiazhoudaxue-luoshanji-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/jiazhoudaxue-luoshanji.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/jiazhoudaxue-luoshanji-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/jiazhoudaxue-luoshanji.csv
 ShortName,jiazhoudaxue-luoshanji
 LongName,jiazhoudaxue-luoshanji

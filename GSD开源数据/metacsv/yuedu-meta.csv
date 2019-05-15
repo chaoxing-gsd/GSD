@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/yuedu-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/yuedu.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/yuedu-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/yuedu.csv
 ShortName,yuedu
 LongName,yuedu

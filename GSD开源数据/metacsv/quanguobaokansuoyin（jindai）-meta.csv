@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/quanguobaokansuoyin（jindai）-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/quanguobaokansuoyin（jindai）.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/quanguobaokansuoyin（jindai）-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/quanguobaokansuoyin（jindai）.csv
 ShortName,quanguobaokansuoyin（jindai）
 LongName,quanguobaokansuoyin（jindai）

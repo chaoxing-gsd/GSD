@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/wiley online library-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/wiley online library.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/wiley online library-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/wiley online library.json
 ShortName,wiley online library
 LongName,wiley online library

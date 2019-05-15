@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/100yiyaowang-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/100yiyaowang.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/100yiyaowang-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/100yiyaowang.json
 ShortName,100yiyaowang
 LongName,100yiyaowang

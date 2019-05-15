@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/JoVE video articles-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/JoVE video articles.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/JoVE video articles-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/JoVE video articles.csv
 ShortName,JoVE video articles
 LongName,JoVE video articles

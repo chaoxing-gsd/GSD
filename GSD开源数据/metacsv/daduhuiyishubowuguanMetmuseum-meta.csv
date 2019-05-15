@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/daduhuiyishubowuguanMetmuseum-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/daduhuiyishubowuguanMetmuseum.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/daduhuiyishubowuguanMetmuseum-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/daduhuiyishubowuguanMetmuseum.json
 ShortName,daduhuiyishubowuguanMetmuseum
 LongName,daduhuiyishubowuguanMetmuseum

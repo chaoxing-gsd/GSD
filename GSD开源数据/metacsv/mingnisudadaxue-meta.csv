@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/mingnisudadaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/mingnisudadaxue.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/mingnisudadaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/mingnisudadaxue.json
 ShortName,mingnisudadaxue
 LongName,mingnisudadaxue

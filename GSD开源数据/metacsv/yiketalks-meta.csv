@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/yiketalks-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/yiketalks.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/yiketalks-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/yiketalks.json
 ShortName,yiketalks
 LongName,yiketalks

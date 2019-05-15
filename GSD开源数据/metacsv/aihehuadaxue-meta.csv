@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/aihehuadaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/aihehuadaxue.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/aihehuadaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/aihehuadaxue.json
 ShortName,aihehuadaxue
 LongName,aihehuadaxue

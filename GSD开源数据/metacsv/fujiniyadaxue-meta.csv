@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/fujiniyadaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/fujiniyadaxue.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/fujiniyadaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/fujiniyadaxue.json
 ShortName,fujiniyadaxue
 LongName,fujiniyadaxue

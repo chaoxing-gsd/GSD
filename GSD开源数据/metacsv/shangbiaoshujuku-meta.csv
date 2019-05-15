@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/shangbiaoshujuku-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/shangbiaoshujuku.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/shangbiaoshujuku-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/shangbiaoshujuku.csv
 ShortName,shangbiaoshujuku
 LongName,shangbiaoshujuku

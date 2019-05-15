@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/jiazhoudaxue-jiujinshan-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/jiazhoudaxue-jiujinshan.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/jiazhoudaxue-jiujinshan-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/jiazhoudaxue-jiujinshan.json
 ShortName,jiazhoudaxue-jiujinshan
 LongName,jiazhoudaxue-jiujinshan

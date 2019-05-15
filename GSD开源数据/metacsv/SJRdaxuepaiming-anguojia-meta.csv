@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/SJRdaxuepaiming-anguojia-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/SJRdaxuepaiming-anguojia.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/SJRdaxuepaiming-anguojia-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/SJRdaxuepaiming-anguojia.json
 ShortName,SJRdaxuepaiming-anguojia
 LongName,SJRdaxuepaiming-anguojia

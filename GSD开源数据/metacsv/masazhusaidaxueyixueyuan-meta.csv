@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/masazhusaidaxueyixueyuan-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/masazhusaidaxueyixueyuan.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/masazhusaidaxueyixueyuan-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/masazhusaidaxueyixueyuan.json
 ShortName,masazhusaidaxueyixueyuan
 LongName,masazhusaidaxueyixueyuan

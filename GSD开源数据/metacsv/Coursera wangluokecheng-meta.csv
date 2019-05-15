@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/Coursera wangluokecheng-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/Coursera wangluokecheng.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/Coursera wangluokecheng-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/Coursera wangluokecheng.csv
 ShortName,Coursera wangluokecheng
 LongName,Coursera wangluokecheng

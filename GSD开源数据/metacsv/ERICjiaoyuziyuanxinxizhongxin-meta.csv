@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/ERICjiaoyuziyuanxinxizhongxin-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/ERICjiaoyuziyuanxinxizhongxin.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/ERICjiaoyuziyuanxinxizhongxin-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/ERICjiaoyuziyuanxinxizhongxin.json
 ShortName,ERICjiaoyuziyuanxinxizhongxin
 LongName,ERICjiaoyuziyuanxinxizhongxin

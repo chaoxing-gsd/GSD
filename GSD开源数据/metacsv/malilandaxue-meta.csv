@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/malilandaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/malilandaxue.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/malilandaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/malilandaxue.json
 ShortName,malilandaxue
 LongName,malilandaxue

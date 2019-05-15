@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/elegangzhoulidaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/elegangzhoulidaxue.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/elegangzhoulidaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/elegangzhoulidaxue.json
 ShortName,elegangzhoulidaxue
 LongName,elegangzhoulidaxue

@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/dunhuangxueqikanquanwenshujuku-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/dunhuangxueqikanquanwenshujuku.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/dunhuangxueqikanquanwenshujuku-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/dunhuangxueqikanquanwenshujuku.json
 ShortName,dunhuangxueqikanquanwenshujuku
 LongName,dunhuangxueqikanquanwenshujuku

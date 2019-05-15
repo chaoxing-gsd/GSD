@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/wangyigongkaike-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/wangyigongkaike.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/wangyigongkaike-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/wangyigongkaike.csv
 ShortName,wangyigongkaike
 LongName,wangyigongkaike

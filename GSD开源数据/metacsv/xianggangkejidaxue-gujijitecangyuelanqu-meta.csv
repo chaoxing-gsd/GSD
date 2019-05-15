@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/xianggangkejidaxue-gujijitecangyuelanqu-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/xianggangkejidaxue-gujijitecangyuelanqu.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/xianggangkejidaxue-gujijitecangyuelanqu-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/xianggangkejidaxue-gujijitecangyuelanqu.json
 ShortName,xianggangkejidaxue-gujijitecangyuelanqu
 LongName,xianggangkejidaxue-gujijitecangyuelanqu

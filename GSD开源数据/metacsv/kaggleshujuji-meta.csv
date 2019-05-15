@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/kaggleshujuji-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/kaggleshujuji.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/kaggleshujuji-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/kaggleshujuji.csv
 ShortName,kaggleshujuji
 LongName,kaggleshujuji

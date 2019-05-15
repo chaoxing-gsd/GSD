@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/elegangweishengkexuedaxue-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/elegangweishengkexuedaxue.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/elegangweishengkexuedaxue-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/elegangweishengkexuedaxue.json
 ShortName,elegangweishengkexuedaxue
 LongName,elegangweishengkexuedaxue

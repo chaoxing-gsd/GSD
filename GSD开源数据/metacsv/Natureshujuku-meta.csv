@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/Natureshujuku-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/Natureshujuku.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/Natureshujuku-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/Natureshujuku.json
 ShortName,Natureshujuku
 LongName,Natureshujuku

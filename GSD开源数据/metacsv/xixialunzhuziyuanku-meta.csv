@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/xixialunzhuziyuanku-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/xixialunzhuziyuanku.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/xixialunzhuziyuanku-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/xixialunzhuziyuanku.csv
 ShortName,xixialunzhuziyuanku
 LongName,xixialunzhuziyuanku

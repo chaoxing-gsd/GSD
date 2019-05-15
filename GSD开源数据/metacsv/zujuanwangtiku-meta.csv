@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/zujuanwangtiku-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/zujuanwangtiku.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/zujuanwangtiku-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/zujuanwangtiku.csv
 ShortName,zujuanwangtiku
 LongName,zujuanwangtiku

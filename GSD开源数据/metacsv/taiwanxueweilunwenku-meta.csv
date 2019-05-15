@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/taiwanxueweilunwenku-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/taiwanxueweilunwenku.json
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/taiwanxueweilunwenku-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/taiwanxueweilunwenku.json
 ShortName,taiwanxueweilunwenku
 LongName,taiwanxueweilunwenku

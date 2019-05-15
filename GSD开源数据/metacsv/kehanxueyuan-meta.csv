@@ -1,5 +1,5 @@
 Field,Value
-MetaURL,http://120.92.71.142:5001/static/csvfile/kehanxueyuan-meta.csv
-DataURL,http://120.92.71.142:5001/static/datafile/kehanxueyuan.csv
+MetaURL,http://120.92.71.142/gsdopensource/static/csvfile/kehanxueyuan-meta.csv
+DataURL,http://120.92.71.142/gsdopensource/static/datafile/kehanxueyuan.csv
 ShortName,kehanxueyuan
 LongName,kehanxueyuan
